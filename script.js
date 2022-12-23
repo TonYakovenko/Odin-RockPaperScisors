@@ -6,9 +6,6 @@ function getComputerChoise(){
 }
 
 function playRound(playerSelection, computerSelection){
-    playerSelection.toLowerCase();
-    playerSelection = playerSelection[0].toUpperCase() + playerSelection.substring(1);
-
     if(playerSelection === computerSelection)
     {
         console.log(`Try Again! ${playerSelection} is equal ${computerSelection}`);
@@ -23,7 +20,10 @@ function playRound(playerSelection, computerSelection){
 function game(){
     for(let i = 0; i < 5; i ++)
     {
-        let playerSelection = getComputerChoise();
+        let playerSelection = window.prompt("Type your choice", "");
+        playerSelection = playerSelection.toLowerCase();
+        playerSelection = playerSelection[0].toUpperCase() + playerSelection.substring(1);
+        // let playerSelection = getComputerChoise();
         let computerSelection = getComputerChoise();
         playRound(playerSelection, computerSelection);
     }
